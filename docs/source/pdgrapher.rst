@@ -9,6 +9,7 @@ Submodules
 
    pdgrapher.datasets
    pdgrapher.pdgrapher
+   pdgrapher.pdgrapher_old
    pdgrapher.train
 
 Module contents
@@ -16,5 +17,5 @@ Module contents
 
 .. automodule:: pdgrapher
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
