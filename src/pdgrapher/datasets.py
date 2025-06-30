@@ -14,11 +14,11 @@ class Dataset:
     def __init__(self, forward_path: str, backward_path: str, splits_path: str,
                  test_indices: bool = True):
         if forward_path is not None:
-            self.dataset_forward = torch.load(forward_path)
+            self.dataset_forward = torch.load(forward_path, weights_only=False)
         else:
             self.dataset_forward = []
             
-        self.dataset_backward = torch.load(backward_path)
+        self.dataset_backward = torch.load(backward_path, weights_only=False)
 
         self.splits = torch.load(splits_path)
         if 1 in self.splits.keys(): # we are in a multiple fold regime
