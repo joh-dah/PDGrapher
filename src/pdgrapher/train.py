@@ -82,13 +82,13 @@ class Trainer:
 
 
         if self.use_logging:
+            makedirs(self.logging_dir, exist_ok=True)
             # Log model parameters
             with open(osp.join(self.logging_dir, f"{self.logging_name}params.txt"), "w") as log_params:
                 log_params.write(f"Response Prediction Model parameters:\t{sum(p.numel() for p in model_1.parameters())}\n")
                 log_params.write(f"Perturbation Discovery Model parameters:\t{sum(p.numel() for p in model_2.parameters())}\n")
             # Log metrics
             log_metrics = open(osp.join(self.logging_dir, f"{self.logging_name}metrics.txt"), "w")
-        makedirs(self.logging_dir, exist_ok=True)
 
 
         t0 = time()
@@ -122,7 +122,9 @@ class Trainer:
 
 
         # Train loop
+        print(f"\n=== Starting training for {n_epochs} epochs ===")
         for epoch in range(1, n_epochs+1):
+            print(f"\n--- Epoch {epoch}/{n_epochs} ---")
             start = perf_counter()
 
             # TRAIN
