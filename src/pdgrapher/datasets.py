@@ -20,7 +20,7 @@ class Dataset:
             
         self.dataset_backward = torch.load(backward_path, weights_only=False)
 
-        self.splits = torch.load(splits_path)
+        self.splits = torch.load(splits_path, weights_only=False)
         if 1 in self.splits.keys(): # we are in a multiple fold regime
             self.num_of_folds = len(self.splits)
         else:
