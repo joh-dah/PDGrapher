@@ -103,7 +103,7 @@ class Trainer:
             train_loader_forward, train_loader_backward,
             val_loader_forward, val_loader_backward,
             test_loader_forward, test_loader_backward
-        ) = dataset.get_dataloaders(num_workers = 20)
+        ) = dataset.get_dataloaders(num_workers = 4)
 
 
         t1 = time()

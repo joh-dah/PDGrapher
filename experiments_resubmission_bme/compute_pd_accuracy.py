@@ -233,7 +233,7 @@ for cell_line in cell_lines:
                         train_loader_forward, train_loader_backward,
                         val_loader_forward, val_loader_backward,
                         test_loader_forward, test_loader_backward
-                    ) = dataset.get_dataloaders(num_workers = 20, batch_size = 1)
+                    ) = dataset.get_dataloaders(num_workers = 4, batch_size = 1)
 
 
             recall_at_1 = []
