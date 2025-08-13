@@ -249,8 +249,10 @@ class PerturbationDiscoveryModel(GCNBase):
 
 
     def _get_embeddings(self, x, batch, topK=None, mutilate_mutations=None, threshold_input=None):
+        # For source detection tasks without background mutations, allow None mutilate_mutations
         if self._mutilate_graph and mutilate_mutations is None:
-            raise ValueError("Mutations should not be None in intervention discovery model")
+            # Set to zeros (no mutations) for source detection tasks
+            mutilate_mutations = torch.zeros(x.shape[0], device=x.device)
 
 
         # Positional encodings
